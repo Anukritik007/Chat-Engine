@@ -1,0 +1,159 @@
+<body>
+  <div class="container-top">
+    <nav class="navbar navbar-dafault custom">
+      <div class="navbar-header">
+        <p  id="count">Number of Online users: {{numberOfOnlineUsers}}</p> 
+        </div>
+        
+        <button type="button" class="btn btn-default" (click)="onLogoutLeave()"><i class="fas fa-sign-out-alt"></i></button>
+        
+    </nav>
+
+    <div class="row">
+      <div class="col-md-2 col-sm-1 col-xs-1">
+      </div>
+
+      <div class="col-md-8 col-sm-10 col-xs-10">
+        <div class="container-fluid mobile">
+          <div class="row">
+            
+            <div class="col-md-4 col-sm-4 col-xs-2 sidepanel">
+              <div class="row " >
+                <div class="col-4"><img class="user-photo" src="https://ui-avatars.com/api/?name={{userName}}"  alt="" /></div>
+                <div class="col-8"><p [ngStyle]="{'color':'#4c46a0','font-weight':'bold','font-size':'20px','margin-top':'15px'}">{{userName}}</p>
+                    <small>{{UserId}}</small>
+                </div>
+                    <hr>
+              </div>
+              <div class="search-form">
+                  <div class="form-group ">
+                  <input type="text" [(ngModel)]="filtertext" class="form-control" name="search" id="search" placeholder="Search users by name..">
+                    
+                  </div>
+
+                <div class="row" *ngIf="(arr|myFilter:filtertext)?.length==0">
+                  <div class="row">
+                    <p [ngStyle]="{'color':'red','margin-left':'50px'}">No Result found</p>
+                  </div>
+                </div>
+                <hr>
+              </div>
+
+              <div class="friendlist">
+                  <!--<div *ngFor="let obj of arr | myFilter:filtertext ;let i=index" [ngClass]="{'active': selectedItem == obj}"  
+                  (click)="fetchUser($event, obj,obj.friendname, i)">
+                    <div class=" One "  *ngIf="obj.friendname != userName" >
+                        <div class="row">
+                          <div class="col-4"><img id="profile-img" class="user-photo" src="https://ui-avatars.com/api/?name={{obj.friendname}}" alt="image" /></div>
+                          <div class="col-8"><p [ngStyle]="{'margin-top':'10px'}">{{obj.friendname}}</p></div>
+                        </div>
+                    </div>
+                </div>-->
+
+                <div *ngFor="let obj of arr | myFilter:filtertext ">
+                    <div class=" One "  *ngIf="obj.friendname != userName" >
+                        <div class="row">
+                          <div class="col-3"><img  class="user-photo" src="https://ui-avatars.com/api/?name={{obj.friendname}}" alt="image" /></div>
+                          <div class="col-7"><p [ngStyle]="{'margin-top':'10px'}">{{obj.friendname}}</p></div>
+                          <div class="col-2"><span class="online_symbol"></span></div>
+                        </div>
+                    </div>
+                </div>
+
+              </div>  
+            </div>
+
+            <div class="col-md-8 col-sm-8 col-xs-10">
+
+              <!--<div *ngIf="mess.length >0 || userclicked">
+                <div class="panelup">
+                  <div class="row " >
+                      <div class="col-2">  <img id="profile-img"  src="https://ui-avatars.com/api/?name={{friendName}}" class="online" alt="" /></div>
+                      <div class="col-10" >  <p [ngStyle]="{'color':'#4c46a0','font-weight':'bold','font-size':'20px','margin-top':'15px'}">{{friendName|uppercase}} </p></div>
+                  </div>
+                </div>
+              </div>-->
+
+                <div class="chatbox">
+                  <div class="chatlogs">
+
+                        <!--<h2 *ngIf="mess.length == 0" class="welcome_chat">Welcome..Chat now</h2>-->
+                        
+                        <div *ngIf="mess.length==0">
+                           <div *ngIf="numberOfOnlineUsers == 1; then wait else welcome"></div>
+                             <ng-template #wait>
+                               <div class="welcome_chat"><h2>Please wait for users to join..</h2></div>
+                             </ng-template>
+                             <ng-template #welcome>
+                               <div class="welcome_chat"><h2>Welcome.. Chat now</h2></div>
+                             </ng-template>
+                        </div>
+
+
+                      <!--<div *ngFor="let item of info;">  
+                          <div>
+                            <p><strong>{{item.user}} </strong>{{item.reply}}</p>
+                          </div>
+                      </div> -->
+
+                    <div *ngFor="let item of mess;">
+                      <div *ngIf="item.isInfo==true;then info else message"></div>
+                      <ng-template #info>
+                        <p class="chat-info"><strong>{{item.user}} </strong> {{item.reply}}</p>
+                      </ng-template>
+
+                      <ng-template #message>
+                      <div *ngIf="item.user == userName;then user else friend"></div>
+                        <ng-template #friend>
+                          <div class="chat friend">
+                          <div class="user-photo">
+                          <img  src="https://ui-avatars.com/api/?name={{item.user}}" class="online" alt="" />
+                          </div>
+                           <p class="chat-message"><strong>{{item.user}}: </strong> {{item.reply}}  <br> <span id=time>{{item.time}}</span> </p> 
+                          </div>
+                        </ng-template>
+                        <ng-template #user>
+                          <div class="chat self">
+                          <div class="user-photo">
+                            <img  src="https://ui-avatars.com/api/?name={{userName}}" class="online" alt="" />
+                          </div>
+                          <p class="chat-message"><strong>{{item.user}}: </strong> {{item.reply}} <br> <span id=time>{{item.time}}</span></p>
+                          </div>
+                        </ng-template>
+                        </ng-template>
+                      </div>
+                    
+
+                    </div>
+
+                    <!--<div *ngIf="mess.length > 0  || userclicked" >
+                      <div class="chat-form" >
+                        <textarea id="msg" placeholder="Type your message here..." [(ngModel)]="rep" required></textarea>
+
+                        <button type="button"  class="btn btn-default" (click)="Send()" [disabled]="rep.length==0" >Reply</button>
+                      </div>
+                    </div>-->
+
+                    <div *ngIf="numberOfOnlineUsers > 1" >
+                      <div class="chat-form" >
+                        <textarea id="msg" placeholder="Type your message here..." [(ngModel)]="rep" required></textarea>
+
+                        <button type="button"  class="btn btn-default" (click)="Send()" [disabled]="rep.length==0" >Reply</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+            </div>
+        </div>
+
+      </div>
+      
+            <div class="col-md-2 col-sm-1 col-xs-1">
+        
+            
+    </div>
+  </div>
+
+  </div>
+</body>

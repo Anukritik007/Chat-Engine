@@ -1,0 +1,48 @@
+
+		<div class="container-fluid box">
+			<div class="row">
+				<div class="col-md-6 col-sm-6 col-xs-6 left ">
+				<img src='/assets/login.png'style="padding-left:20px;">
+		</div>
+
+				<div class="col-md-6 col-sm-6 col-xs-6 ">
+
+		<form  #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+
+			<h5 class="customfont" > Member Login</h5>
+			<br>
+			
+			<div class="form-group">			
+	<input type="email" class="form-control grey" placeholder="Email"  name="email" #emRef="ngModel" required [(ngModel)]="em" email>
+<div [hidden]="emRef.valid || emRef.pristine" class="alert alert-danger" >
+					Please enter a valid email</div>
+						</div>
+		
+						<div class="form-group">
+	<input type="Password" class="form-control grey" placeholder="Password" name="pwd" #passRef="ngModel" required [(ngModel)]="pwd">
+		<div [hidden]="passRef.valid || passRef.pristine" class="alert alert-danger" >
+			Please enter password</div>
+					</div>
+
+	<button type="submit" class="btn btn-success btn-block" [disabled]="f.form.invalid">LOGIN</button>
+				<br>
+						<h5>
+				<a routerLink="/reset">Reset your Password</a>
+				<br>
+				<br>
+							<a routerLink="/signup">Create your Account</a></h5>
+							
+							<ngx-spinner
+							bdColor="rgba(51,51,51,0.8)"
+							size="medium"
+							color="#fff"
+							type="ball-scale-multiple">
+						   <p style="font-size: 20px; color: white">Loading...</p>
+						  </ngx-spinner>
+			<div *ngIf="!check" class="invalid">{{error}}</div>
+					</form>
+			</div>
+		</div>
+
+	</div>
+  

@@ -1,0 +1,210 @@
+body {
+  display: flex;
+  /*align-items: center;
+  justify-content: center;*/
+  min-height: 100vh;
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#93e8ff+0,c375ff+66 */
+background: #93e8ff; /* Old browsers */
+background: -moz-linear-gradient(45deg,  #93e8ff 0%, #c375ff 66%); /* FF3.6-15 */
+background: -webkit-linear-gradient(45deg,  #93e8ff 0%,#c375ff 66%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(45deg,  #93e8ff 0%,#c375ff 66%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93e8ff', endColorstr='#c375ff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+ 
+}
+.mobile{
+	margin-top:2%;
+	background-color: white;
+	border-radius:7px;
+	box-shadow: 5px 10px 10px 8px rgba(0, 0, 0, 0.3);
+	padding:20px;
+	height:600px;
+	margin-bottom:10%;
+}
+
+.sidepanel {
+  background: #f6f7f9;
+  color: black;
+  border-top-left-radius:7px;
+	height:550px;
+	padding-bottom: 20px;
+
+}
+.search-form{
+  margin-top:20px;
+}
+.One{
+  padding:10px;
+}
+.One:hover{
+  background: #f0dff1;
+  border-radius:5px;
+}
+.active{
+  background: rgb(240, 199, 241);
+  border-radius:5px;
+  color:white;
+  font-weight: bold;
+}
+
+.panelup{
+height:70px;
+background:#ffffff;
+border-right:2px solid #eaeaea;
+border-bottom:3px solid #eaeaea;
+
+}
+.friendlist{
+	overflow-x: hidden;
+	overflow-y: scroll;
+  	height:400px;
+}
+.friendlist::-webkit-scrollbar{
+  width:7px;
+}
+.friendlist::-webkit-scrollbar-thumb{
+  border-radius:5px;
+  background:#abadff;
+}
+
+.chatlogs{
+	height:450px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	    padding-bottom: 50px;
+      position: relative;
+}
+.chatlogs::-webkit-scrollbar{
+  width:7px;
+}
+.chatlogs::-webkit-scrollbar-thumb{
+  border-radius:5px;
+  background:#c375ff;
+}
+.chatbox
+{
+	background:#ffffff;
+	padding:25px;
+	border-right:2px solid #eaeaea;
+	padding-top:20px;
+	box-shadow: 3px #ccc;
+	height:60%;
+}
+.chat{
+	display:flex;
+	flex-flow:row wrap;
+	align-items:flex-start;
+	margin-bottom:10px;
+}
+ .user-photo{
+	width:60px;
+	height:60px;
+	background-color:#aea6ff;
+	border-radius: 50%;
+
+}
+img{
+  border-radius:50%;
+}
+.chat .chat-message{
+	width:70%;
+	padding: 15px;
+	margin:5px 10px 0;
+	background:#fff9ef;
+	border-radius: 10px;
+	color:black;
+	font-size:14px;
+	position: relative;
+}
+
+.friend .chat-message{
+background:#fff9ef;
+}
+.self .chat-message{
+background:#f0f9ff;
+order:-1;
+}
+.chat-form{
+	width:90%;
+	
+	position:absolute;
+	bottom:0;
+}
+
+textarea{
+	width:80%;
+	padding:10px;
+	border-radius: 2px;
+	border-bottom:none;
+	border-left:none;
+	border-right:none;
+}
+button{
+	float:right;
+	background-color: #4186ff;
+	width:100px;
+	color:white;
+
+}
+.chat-form button:hover{
+	background-color: green;
+}
+
+button:hover{
+	background-color: rgb(194, 70, 90);
+  border:white;
+}
+
+
+.welcome_chat {
+  position: absolute;
+    top: 150px;
+    width: 100%;
+    text-align: center;
+    color: #bababa;
+}
+
+.custom{
+	background-color: rgba(96, 37, 142, 0.3);
+}
+.custom:hover{
+	background-color: rgba(131, 18, 220, 0.3);
+	border-radius: 5px;
+}
+
+#loggedin{
+	color:white;
+}
+
+#count{
+	font-size: 20px;
+	font-weight: bold;
+	color:black;
+	font-family: 'Roboto Slab', serif;
+}
+
+.online_symbol{
+	background: #3fc73f;
+	height:15px;
+	width:15px;
+	display: inline-block;
+	margin-top:15px;
+	border-radius: 50%;
+
+}
+#time{
+	font-size:12px;
+	color:grey;
+	font-weight:bold;
+	position:absolute;
+	left:80%;
+	bottom:5%;
+}
+.chat-info{
+	background: #d4cfcfa1;
+	border-radius: 4px;
+	text-align: center;
+}
+.container-top{
+	width:100%;
+}

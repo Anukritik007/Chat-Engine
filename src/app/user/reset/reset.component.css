@@ -1,0 +1,40 @@
+
+.invalid{
+    color:red;
+    text-align:center;
+  }
+  .box{
+      background: white;
+      border-radius: 5px;
+      padding:50px;
+        box-shadow: 5px 10px 10px 8px rgba(0, 0, 0, 0.3);
+  }
+  .left{
+      margin:auto;
+    font-family: 'Indie Flower', cursive;
+    font-size: 50px;
+  }
+  .grey{
+      border-radius: 20px;
+      background:#dee3e8;
+  }
+  input:hover{
+    background:#d1deea;
+  }
+  .btn-block{
+      border-radius: 20px;
+  }
+  h5{
+      text-align: center;
+  }
+  
+  .customfont{
+  font-family: 'Roboto Slab', serif;
+  }
+  a{
+      color:grey;
+      font-size:12px;
+  }
+  form{
+      padding-top:30px;
+  }
